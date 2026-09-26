@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dropora — Drop. Organize. Preview. Download.</title>
+<meta name="description" content="Dropora is a browser-based file workspace. Your files stay in your browser.">
+<link rel="icon" href="assets/dropora-logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-theme="dark">
+
+  <!-- INTRO -->
+  <section id="intro" aria-hidden="true">
+    <div class="intro-glow"></div>
+    <img src="assets/dropora-logo.svg" alt="" class="intro-logo">
+    <h1 class="intro-word">DROPORA</h1>
+    <p class="intro-tag">Drop. Organize. Preview. Download.</p>
+    <p class="intro-credit">Designed by Spido Studio</p>
+  </section>
+
+  <!-- APP -->
+  <div id="app" class="hidden">
+
+    <!-- Mobile top bar -->
+    <div class="mobile-bar">
+      <button id="drawerToggle" class="icon-btn" aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+      <img src="assets/dropora-logo.svg" alt="Dropora" class="mobile-logo">
+      <span></span>
+    </div>
+    <div id="drawerScrim" class="drawer-scrim"></div>
+
+    <!-- Sidebar -->
+    <aside id="sidebar">
+      <div class="brand">
+        <img src="assets/dropora-logo.svg" alt="Dropora">
+        <span>Dropora</span>
+      </div>
+
+      <nav class="nav-group" aria-label="Primary">
+        <button class="nav-item is-active" data-filter="all">
+          <svg viewBox="0 0 24 24"><path d="M4 5h16v14H4z"/></svg> All Files
+        </button>
+        <button class="nav-item" data-filter="recent">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg> Recent
+        </button>
+        <button class="nav-item" data-filter="image">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5-9 9"/></svg> Images
+        </button>
+        <button class="nav-item" data-filter="document">
+          <svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/><path d="M15 2v5h5"/></svg> Documents
+        </button>
+        <button class="nav-item" data-filter="pdf">
+          <svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/><path d="M9 13h6M9 17h6"/></svg> PDFs
+        </button>
+        <button class="nav-item" data-filter="video">
+          <svg viewBox="0 0 24 24"><rect x="3" y="5" width="14" height="14" rx="2"/><path d="M17 9l4-2v10l-4-2z"/></svg> Videos
+        </button>
+        <button class="nav-item" data-filter="audio">
+          <svg viewBox="0 0 24 24"><path d="M9 18V6l10-2v12"/><circle cx="6" cy="18" r="3"/><circle cx="16" cy="16" r="3"/></svg> Audio
+        </button>
+        <button class="nav-item" data-view="folders">
+          <svg viewBox="0 0 24 24"><path d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg> Folders
+        </button>
+      </nav>
+
+      <div class="nav-group nav-group-bottom">
+        <button class="nav-item" data-view="storage">
+          <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/></svg> Storage
+        </button>
+        <button class="nav-item" data-view="settings">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 00.3 1.9l.1.1a2 2 0 11-2.9 2.9l-.1-.1a1.7 1.7 0 00-1.9-.3 1.7 1.7 0 00-1 1.6V21a2 2 0 11-4 0v-.2a1.7 1.7 0 00-1-1.5 1.7 1.7 0 00-1.9.3l-.1.1a2 2 0 11-2.9-2.9l.1-.1a1.7 1.7 0 00.3-1.9 1.7 1.7 0 00-1.5-1H3a2 2 0 110-4h.2a1.7 1.7 0 001.5-1 1.7 1.7 0 00-.3-1.9l-.1-.1a2 2 0 112.9-2.9l.1.1a1.7 1.7 0 001.9.3H9a1.7 1.7 0 001-1.5V3a2 2 0 114 0v.2a1.7 1.7 0 001 1.6 1.7 1.7 0 001.9-.3l.1-.1a2 2 0 112.9 2.9l-.1.1a1.7 1.7 0 00-.3 1.9V9c.4.3 1 .6 1.5.6H21a2 2 0 110 4h-.2a1.7 1.7 0 00-1.6 1z"/></svg> Settings
+        </button>
+      </div>
+
+      <p class="brand-credit">Designed by Spido Studio</p>
+    </aside>
+
+    <!-- Main -->
+    <main id="main">
+
+      <!-- FILES VIEW -->
+      <section id="view-files" class="view">
+        <header class="topbar">
+          <div>
+            <h1>My Files</h1>
+            <p class="subtitle">Everything you need, right in your browser.</p>
+          </div>
+          <div class="topbar-actions">
+            <label class="search">
+              <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+              <input id="searchInput" type="search" placeholder="Search files" aria-label="Search files">
+            </label>
+            <div class="seg" role="group" aria-label="View">
+              <button id="viewGridBtn" class="seg-btn is-active" aria-pressed="true" title="Grid view">
+                <svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/><rect x="3" y="13" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/></svg>
+              </button>
+              <button id="viewListBtn" class="seg-btn" aria-pressed="false" title="List view">
+                <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+              </button>
+            </div>
+            <button id="themeToggle" class="icon-btn" title="Toggle theme" aria-label="Toggle dark or light mode">
+              <svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 109 9c0-.5 0-1-.1-1.5A7 7 0 0112 3z"/></svg>
+            </button>
+          </div>
+        </header>
+
+        <div class="filter-row" role="tablist" aria-label="Filter files">
+          <button class="chip is-active" data-chip="all">All</button>
+          <button class="chip" data-chip="image">Images</button>
+          <button class="chip" data-chip="document">Documents</button>
+          <button class="chip" data-chip="pdf">PDFs</button>
+          <button class="chip" data-chip="video">Videos</button>
+          <button class="chip" data-chip="audio">Audio</button>
+          <button class="chip" data-chip="archive">Archives</button>
+          <button class="chip" data-chip="other">Other</button>
+        </div>
+
+        <div id="dropzone" class="dropzone">
+          <svg viewBox="0 0 24 24" class="dz-icon"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v3a2 2 0 002 2h12a2 2 0 002-2v-3"/></svg>
+          <p><strong>Drop your files here</strong></p>
+          <p class="muted">or click to browse</p>
+          <input id="fileInput" type="file" multiple hidden>
+        </div>
+
+        <div id="selectionBar" class="selection-bar hidden">
+          <span id="selectionCount">0 selected</span>
+          <div class="selection-actions">
+            <button data-action="download" class="btn btn-ghost">Download</button>
+            <button data-action="move" class="btn btn-ghost">Move</button>
+            <button data-action="delete" class="btn btn-danger">Delete</button>
+          </div>
+        </div>
+
+        <div id="fileGrid" class="file-grid"></div>
+        <div id="emptyState" class="empty-state hidden">
+          <svg viewBox="0 0 24 24"><path d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+          <h2>Your workspace is empty</h2>
+          <p class="muted">Drop your first file here to get started.</p>
+          <button id="emptyChooseBtn" class="btn btn-primary">Choose Files</button>
+        </div>
+        <div id="noResults" class="empty-state hidden">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+          <h2>No files match “<span id="noResultsQuery"></span>”</h2>
+          <p class="muted">Try a different name, type, or filter.</p>
+        </div>
+      </section>
+
+      <!-- FOLDERS VIEW -->
+      <section id="view-folders" class="view hidden">
+        <header class="topbar">
+          <div><h1>Folders</h1><p class="subtitle">Group files the way you work.</p></div>
+          <div class="topbar-actions">
+            <button id="newFolderBtn" class="btn btn-primary">New folder</button>
+          </div>
+        </header>
+        <div id="folderGrid" class="folder-grid"></div>
+      </section>
+
+      <!-- STORAGE VIEW -->
+      <section id="view-storage" class="view hidden">
+        <header class="topbar"><div><h1>Your Workspace</h1><p class="subtitle">A quick look at what's stored locally.</p></div></header>
+        <div class="stat-cards">
+          <div class="stat-card"><span class="stat-num" id="statFiles">0</span><span class="stat-label">Files</span></div>
+          <div class="stat-card"><span class="stat-num" id="statFolders">0</span><span class="stat-label">Folders</span></div>
+          <div class="stat-card"><span class="stat-num" id="statSize">0 MB</span><span class="stat-label">Storage used</span></div>
+        </div>
+        <div class="privacy-note">
+          <svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8.5-8 9-4.5-.5-8-4-8-9V7z"/></svg>
+          <div>
+            <strong>Your files stay in your browser.</strong>
+            <p class="muted">Dropora is designed to process your files locally whenever possible. Files loaded in this session are held in memory and are not uploaded anywhere; reloading the page clears them.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SETTINGS VIEW -->
+      <section id="view-settings" class="view hidden">
+        <header class="topbar"><div><h1>Settings</h1><p class="subtitle">Tune how Dropora looks and behaves.</p></div></header>
+
+        <div class="settings-block">
+          <h3>Appearance</h3>
+          <div class="settings-row">
+            <span>Theme</span>
+            <div class="seg" role="group" aria-label="Theme">
+              <button class="seg-btn" data-theme-opt="light">Light</button>
+              <button class="seg-btn" data-theme-opt="dark">Dark</button>
+              <button class="seg-btn" data-theme-opt="system">System</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="settings-block">
+          <h3>Workspace</h3>
+          <div class="settings-row">
+            <span>Default view</span>
+            <div class="seg" role="group" aria-label="Default view">
+              <button class="seg-btn" data-defaultview-opt="grid">Grid</button>
+              <button class="seg-btn" data-defaultview-opt="list">List</button>
+            </div>
+          </div>
+          <div class="settings-row">
+            <span>Confirm before deleting</span>
+            <label class="switch"><input type="checkbox" id="confirmDeleteToggle" checked><span></span></label>
+          </div>
+        </div>
+
+        <div class="settings-block">
+          <h3>Data</h3>
+          <div class="settings-row">
+            <span>Clear local workspace</span>
+            <button id="clearWorkspaceBtn" class="btn btn-danger-ghost">Clear workspace</button>
+          </div>
+          <div class="settings-row">
+            <span>Export workspace metadata</span>
+            <button id="exportMetaBtn" class="btn btn-ghost">Export JSON</button>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- PREVIEW MODAL -->
+  <div id="previewModal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="previewName">
+    <div class="modal">
+      <header class="modal-header">
+        <div>
+          <h2 id="previewName">File name</h2>
+          <p id="previewMeta" class="muted"></p>
+        </div>
+        <button class="icon-btn" data-close-modal aria-label="Close preview">
+          <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </header>
+      <div id="previewBody" class="modal-body"></div>
+      <footer class="modal-footer">
+        <button id="previewDownloadBtn" class="btn btn-primary">Download</button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- MOVE / CONFIRM / NEW FOLDER MODAL (generic) -->
+  <div id="genericModal" class="modal-overlay hidden" role="dialog" aria-modal="true">
+    <div class="modal modal-small">
+      <header class="modal-header">
+        <h2 id="genericModalTitle">Title</h2>
+        <button class="icon-btn" data-close-modal aria-label="Close">
+          <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </header>
+      <div id="genericModalBody" class="modal-body"></div>
+      <footer class="modal-footer" id="genericModalFooter"></footer>
+    </div>
+  </div>
+
+  <!-- TOASTS -->
+  <div id="toastStack" class="toast-stack" aria-live="polite"></div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/folders.js"></script>
+  <script src="js/preview.js"></script>
+  <script src="js/files.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
